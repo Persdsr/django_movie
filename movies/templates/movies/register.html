@@ -1,0 +1,15 @@
+{% extends 'movies/base.html' %}
+
+{% block content %}
+<div class="register-block form-movie">
+    <form method="post">
+    {% csrf_token %}
+        {% for p in form %}
+        <p><label for="{{ for_label_id }}">{{ p.label }}</label>{{ p }}</p>
+        <div>{{ p.errors }}</div>
+        {% endfor %}
+        <button class="button-in btn btn-dark">Зарегистрироваться</button>
+    </form>
+</div>
+
+{% endblock %}

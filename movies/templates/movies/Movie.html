@@ -1,0 +1,133 @@
+{% extends 'movies/movie_base.html' %}
+{% load static %}
+{% block content %}
+    <img class="poster" src="{{ movie.poster.url }}">
+    <div class="movie-info1">
+        <ul class="info-movie-list">
+            <li>
+                <span><b>Год выхода:</b> {{ movie.year }}</span>
+            </li>
+            <hr>
+            <li>
+                <span><b>Жанр:</b>
+                    {% for i in movie.genres.all %}
+                        {{ i.name }}{% if not forloop.last %},{% else %}.{% endif %}
+                    {% endfor %}
+                </span>
+            </li>
+            <hr>
+            <li>
+                <span><b>Возраст:</b>
+                    {{ movie.age }}+
+                </span>
+                </span>
+            </li>
+            <hr>
+            <li>
+                <span><b>Актеры:</b>
+                    {% for i in movie.actors.all  %}
+                        {{ i.name }}{% if not forloop.last %},{% else %}.{% endif %}
+                    {% endfor %}
+                </span>
+            </li>
+            <hr>
+            <li>
+                <span><b>Режиссеры:</b>
+                    {% for i in movie.directors.all %}
+                        {{ i.name }}{% if not forloop.last %},{% else %}.{% endif %}
+                    {% endfor %}
+                </span>
+            </li>
+            <hr>
+            <li>
+                <span><b>Слоган:</b>
+                    {% if movie.slogan %}
+                        {{ movie.slogan }}
+                    {% else %}
+                        -
+                    {% endif %}
+                </span>
+            </li>
+            <hr>
+            <li>
+                <span><b>Страна:</b> {{ movie.country }}</span>
+            <li>
+            <hr>
+            <li>
+                <span><b>Бюджет:</b> {{ movie.budget }}</span>
+            <li>
+            <hr>
+            <li>
+                <span><b>Категория:</b> {{ movie.category }}</span>
+            <li>
+        </ul>
+    </div>
+
+    <div class="movie-info2">
+        <h2 class="text-center">Описание</h2>
+        <p class="movie-description">{{ movie.description }}</p>
+    </div>
+
+
+    <div class="comments">
+        <p>Комментарии ({{ movie.comments_movies.all.count }})</p>
+        <hr>
+
+
+        <div class="comment-add">
+            <form action="" id="add_form" method="post">
+            {% csrf_token %}
+                {{ form.as_p }}
+            </form>
+
+            <button form="add_form" class="btn btn-dark" type="submit">Добавить</button>
+
+        </div>
+
+        <div class="comment">
+            <ul class="comment-list">
+                {% for item in movie.comments_movies.all %}
+                <li>
+                    <div class="comment-header">
+                        <span class="comment-username">{{ item.author }}</span>
+                        <span class="comment-date">{{ item.create_date }}</span><br>
+                    </div>
+                    {% if request.user.is_superuser or request.user == item.author %}
+                        Статус: {{ item.status }} - <a class="update_status" style="color:#00bfff" data-url="{% url 'update_comment_status' item.id 'delete' %}" href="#">Удалить</a><br>
+                    {% endif %}
+                        {{ item.text }}<br><br>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+
+
+    </div>
+
+
+
+{% endblock %}
+
+{% block js %}
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+<script>
+    $('body').on('click', '.update_status', function(event){
+        if (confirm('Вы уверены что хотите удалить комментарий?')){
+            var url = $(this).attr('data-url')
+            var tag_li = $(this).parent()
+            console.log(url)
+
+            $.ajax({
+                url:url,
+                type: 'GET'
+            })
+        }
+
+    })
+</script>
+
+
+
+{% endblock %}
