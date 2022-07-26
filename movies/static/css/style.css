@@ -1,0 +1,220 @@
+body {
+    margin: 0;
+}
+*{
+    box-sizing: border-box;
+    list-style-type: none;
+    text-decoration: none;
+}
+
+
+.awhite{ color: white; }
+.redlink:hover{
+    color: #ff033e;
+}
+
+.logo-url{ color: black; }
+.logo-url:active { color: black; }
+.logo-url:hover{
+    color:black;
+}
+
+.headerContainer{
+    position: relative;
+    display: flex;
+    background-size: cover;
+    width: 100%;
+    height: 888px;
+
+
+}
+.header{
+    position: fixed;
+    display: inline-block;
+    padding: 15px;
+    height: 100px;
+    width: 100%;
+    background-color: rgba(255,255,255,0.9);
+    z-index: 2;
+    flex: 1 1 auto;
+
+}
+.video{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.active{
+    vertical-align: top;
+    font-size: 24px;
+}
+.text-center{
+    text-align: center;
+}
+.foto-img{
+    width: 100%;
+    height: 777px;
+}
+.header-text, log-reg{
+    color: white;
+    font-size: 44px;
+}
+.log-reg{
+    width:550px;
+    display: inline-block;
+    text-align: right;
+    float: right;
+    font-size: 32px;
+    padding: 5px;
+}
+.header-text{
+    width: 350px;
+}
+.logo{
+    display:inline-block;
+}
+
+.poisk{
+    padding: 8px;
+    padding-left: 35px;
+    width: 100%;
+    height: 40px;
+    background-color: #cfcfcf;
+}
+.sidebar{
+    display: inline-block;
+    height: 100%;
+    width: 350px;
+    flex: 0 0 auto;
+    margin-right: 150px;
+}
+.search{
+    margin-bottom: 40px;
+}
+.search-list{
+    list-style-type: none;
+}
+.content{
+    padding-top: 80px;
+    vertical-align: top;
+    width: 1470px;
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+}
+.main{
+    padding: 99px 77px;
+    display: flex;
+
+}
+.movie-block{
+    vertical-align: top;
+    margin: 0px 65px 40px 0px;
+    box-shadow: 0px 6px 20px white, 0px 20px 40px rgb(23 18 43 / 59%);
+    padding: 5px 5px 10px 5px;
+    width: 320px;
+    height: 450px;
+    display: inline-block;
+
+    transition: transform .3s ease;
+}
+.movie-block:hover{
+    transform: scale(1.05);
+}
+.movie-img{
+    width: 100%;
+    height: 180px;
+}
+.movie-text{
+    text-align: center;
+}
+/*REGISTER
+*/
+
+.register-block{
+    margin-left: 100px;
+}
+
+/* MOVIE CSS
+MOVIE CSS
+MOVIE CSS
+MOVIE CSS
+MOVIE CSS
+MOVIE CSS
+MOVIE CSS*/
+
+.paginate{
+    margin: 0 auto;
+    text-align: center;
+}
+.paginate-list{
+    display: inline-block;
+    font-size: 18px;
+}
+.onclick{
+    color: #ff033e;
+    font-size: 26px;
+}
+.footer{
+
+    background-color: gray;
+    width: 100%;
+    height: 333px;
+}
+
+/*
+ADMIN PANEL
+*/
+/*
+ADMIN PANEL
+*/
+/*Ricardo_Radrigas
+ADMIN PANEL
+*/
+
+.table-body{
+    margin-left: 100px;
+}
+
+/*
+FORM
+*/
+/*
+FORM
+*/
+/*Ricardo_Radrigas
+FORM
+*/
+
+.form-movie{
+    margin-left: 100px;
+    margin-bottom: 150px;
+}
+.form-control{
+    width: 250px;
+}
+.text-area{
+    width: 350px;
+}
+
+div.form-movie label {
+  margin-right: 35px;
+  display: block;
+  float: left;
+  width: 70px;
+  height: 15px;
+}
+.button-in{
+    margin-top: 20px;
+}
+.table-body{
+    margin-bottom: 100px;
+}
+.search-input{
+    margin-bottom: 10px;
+}
+
